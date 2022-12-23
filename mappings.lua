@@ -41,4 +41,26 @@ M.Lsp = {
   },
 }
 
+M.nvterm = {
+  t = {
+    -- toggle in terminal mode
+    ["<A-j>"] = {
+      function()
+        require("nvterm.terminal").toggle "float"
+      end,
+      "toggle floating term",
+    }
+  },
+
+  n = {
+    -- toggle in normal mode
+    ["<A-j>"] = {
+      function()
+        require("nvterm.terminal").toggle "float"
+      end,
+      "toggle floating term",
+    },
+  }
+}
+
 return M

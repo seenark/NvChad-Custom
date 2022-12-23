@@ -11,6 +11,7 @@ local formatting = b.formatting
 local sources = {
 
   -- webdev stuff
+  -- formatting.prettierd.with({extra_args = {"--no-semi", "--single-qoute", "--jsx-single-qoute"}}),
   formatting.prettierd,
   b.diagnostics.eslint_d.with({
     diagnostics_format = '[eslint] #{m}\n(#{c})'
