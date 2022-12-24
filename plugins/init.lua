@@ -32,70 +32,11 @@ return {
   -- install
   ---------------------------------
   ["b0o/schemastore.nvim"] = {},
-  -- ["glepnir/lspsaga.nvim"] = {
-  --   branch = "main",
-  --   config = function()
-  --     local present, saga = pcall(require, "lspsaga")
-  --     if present then
-  --       local k = vim.keymap.set
-  --       saga.init_lsp_saga {
-  --         -- your configuration
-  --         k("n", "gh", "<cmd>Lspsaga lsp_finder<Cr>", { silent = true }),
-  --       }
-  --     end
-  --   end,
-  -- },
   ["windwp/nvim-ts-autotag"] = {
     config = function()
       require("nvim-ts-autotag").setup()
     end,
   },
-  ["fedepujol/move.nvim"] = {},
-  -- notify
-  ["MunifTanjim/nui.nvim"] = {},
-  ["rcarriga/nvim-notify"] = {},
-  ["folke/noice.nvim"] = {
-    config = function()
-      require("noice").setup {
-        notify = {
-          enabled = false,
-        },
-        presets = {
-          command_palette = true,
-          long_message_to_split = true,
-        },
-        lsp = {
-          hover = {
-            enabled = false,
-          },
-          signature = {
-            enabled = false,
-          },
-        },
-        routes = {
-          {
-            filter = {
-              event = "msg_show",
-              kind = "",
-              find = "written",
-            },
-            opts = { skip = true },
-          },
-          {
-            filter = {
-              event = "msg_show",
-              kind = "search_count",
-            },
-            opts = { skip = true },
-          },
-        },
-      }
-    end,
-  },
-
-  -- ["weilbith/nvim-code-action-menu"] = {
-  --   config = function ()
-  --     cmd = "CodeActionMenu"
-  --   end
-  -- }
+  ["fedepujol/move.nvim"] = {}, -- move text by line or by block
+  ["weilbith/nvim-code-action-menu"] = {} -- code action in floating window, yes it colored -> key mapping is set in mapping file
 }

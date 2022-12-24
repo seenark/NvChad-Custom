@@ -31,24 +31,18 @@ M.NvimTree = {
 
 M.Lsp = {
   n = {
-    -- ["gh"] = {
-    --   function()
-    --     vim.lsp.buf.hover()
-    --   end,
-    --   "lsp hover",
-    -- },
     ["=="] = {
       function()
         vim.lsp.buf.format { async = true }
       end,
       "lsp formatting",
     },
-    ["<leader>."] = {
-      function()
-        vim.lsp.buf.code_action()
-      end,
-      "lsp code_action",
-    },
+    -- ["<leader>."] = {
+    --   function()
+    --     vim.lsp.buf.code_action()
+    --   end,
+    --   "lsp code_action",
+    -- },
   },
 }
 
@@ -66,6 +60,13 @@ M.Move = {
     ["<A-h>"] = { ":MoveHBlock(-1) <CR>", "Move block down", opts },
     ["<A-l>"] = { ":MoveHBlock(1) <CR>", "Move block down", opts },
   },
+}
+
+
+M.CodeActionMenu = {
+  n = {
+    ["<leader>."] = {"<cmd>CodeActionMenu<CR>", "Open Code action menu"}
+  }
 }
 
 -- M.nvterm = {
