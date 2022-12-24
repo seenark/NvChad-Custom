@@ -31,24 +31,7 @@ return {
   ---------------------------------
   -- install
   ---------------------------------
-  ["b0o/schemastore.nvim"] = {
-    -- config = function()
-    --   local lspconfig = require "lspconfig"
-    --   lspconfig.jsonls.setup {
-    --     settings = {
-    --       json = {
-    --         schemas = require("schemastore").json.schemas {
-    --           ignore = {
-    --             ".eslintrc",
-    --             "package.json",
-    --           },
-    --         },
-    --         validate = { enable = true },
-    --       },
-    --     },
-    --   }
-    -- end,
-  },
+  ["b0o/schemastore.nvim"] = {},
   -- ["glepnir/lspsaga.nvim"] = {
   --   branch = "main",
   --   config = function()
@@ -67,40 +50,52 @@ return {
       require("nvim-ts-autotag").setup()
     end,
   },
-  -- ["MunifTanjim/prettier.nvim"] = {
-  --   config = function()
-  --     local null_ls = require "null-ls"
-  --
-  --     local group = vim.api.nvim_create_augroup("lsp_format_on_save", { clear = false })
-  --     local event = "BufWritePre" -- or "BufWritePost"
-  --     local async = event == "BufWritePost"
-  --
-  --     null_ls.setup {
-  --       on_attach = function(client, bufnr)
-  --         if client.supports_method "textDocument/formatting" then
-  --           vim.keymap.set("n", "<Leader>f", function()
-  --             vim.lsp.buf.format { bufnr = vim.api.nvim_get_current_buf() }
-  --           end, { buffer = bufnr, desc = "[lsp] format" })
-  --
-  --           -- format on save
-  --           vim.api.nvim_clear_autocmds { buffer = bufnr, group = group }
-  --           vim.api.nvim_create_autocmd(event, {
-  --             buffer = bufnr,
-  --             group = group,
-  --             callback = function()
-  --               vim.lsp.buf.format { bufnr = bufnr, async = async }
-  --             end,
-  --             desc = "[lsp] format on save",
-  --           })
-  --         end
-  --
-  --         if client.supports_method "textDocument/rangeFormatting" then
-  --           vim.keymap.set("x", "<Leader>f", function()
-  --             vim.lsp.buf.format { bufnr = vim.api.nvim_get_current_buf() }
-  --           end, { buffer = bufnr, desc = "[lsp] format" })
-  --         end
-  --       end,
-  --     }
-  --   end,
-  -- },
+  ["fedepujol/move.nvim"] = {},
+  -- notify
+  ["MunifTanjim/nui.nvim"] = {},
+  ["rcarriga/nvim-notify"] = {},
+  ["folke/noice.nvim"] = {
+    config = function()
+      require("noice").setup {
+        notify = {
+          enabled = false,
+        },
+        presets = {
+          command_palette = true,
+          long_message_to_split = true,
+        },
+        lsp = {
+          hover = {
+            enabled = false,
+          },
+          signature = {
+            enabled = false,
+          },
+        },
+        routes = {
+          {
+            filter = {
+              event = "msg_show",
+              kind = "",
+              find = "written",
+            },
+            opts = { skip = true },
+          },
+          {
+            filter = {
+              event = "msg_show",
+              kind = "search_count",
+            },
+            opts = { skip = true },
+          },
+        },
+      }
+    end,
+  },
+
+  -- ["weilbith/nvim-code-action-menu"] = {
+  --   config = function ()
+  --     cmd = "CodeActionMenu"
+  --   end
+  -- }
 }
