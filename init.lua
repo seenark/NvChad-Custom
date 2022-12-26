@@ -1,6 +1,6 @@
 -- options
 local opt = vim.opt
-opt.clipboard = ""
+-- opt.clipboard = "unnamedplus"
 opt.relativenumber = true
 opt.scrolloff = 8
 -- opt.termguicolors = true

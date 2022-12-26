@@ -18,7 +18,7 @@ return {
     end,
   },
   ["nvim-treesitter/nvim-treesitter"] = {
-    override_options = treesitter,
+    override_options = treesitter.treesitter,
   },
   ["NvChad/ui"] = {
     override_options = {
@@ -38,5 +38,21 @@ return {
     end,
   },
   ["fedepujol/move.nvim"] = {}, -- move text by line or by block
-  ["weilbith/nvim-code-action-menu"] = {} -- code action in floating window, yes it colored -> key mapping is set in mapping file
+  ["weilbith/nvim-code-action-menu"] = {}, -- code action in floating window, yes it colored -> key mapping is set in mapping file
+  ["tpope/vim-surround"] = {},
+  ["RRethy/vim-illuminate"] = {
+    config = function()
+      require("illuminate").configure {
+        -- providers: provider used to get references in the buffer, ordered by priority
+        providers = {
+          "lsp",
+          "treesitter",
+          "regex",
+        },
+        -- delay: delay in milliseconds
+        delay = 100,
+      }
+    end,
+  },
+  ["p00f/nvim-ts-rainbow"] = {}
 }

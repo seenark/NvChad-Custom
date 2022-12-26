@@ -20,6 +20,9 @@ local sources = {
   -- Lua
   b.formatting.stylua,
 
+  -- rust
+  b.formatting.rustfmt,
+
   -- Shell
   -- b.formatting.shfmt,
   -- b.diagnostics.shellcheck.with { diagnostics_format = "#{m} [#{c}]" },
