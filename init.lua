@@ -4,7 +4,11 @@ local opt = vim.opt
 opt.relativenumber = true
 opt.scrolloff = 8
 -- opt.termguicolors = true
-opt.guifont = {"Hack Nerd Font", ":h18"}
+-- opt.guifont = {"Hack Nerd Font", ":h18"}
+
+-- Text behaviour
+opt.iskeyword:append "-" -- hyphenated words regognized by searchs
+opt.formatoptions:remove("cro") -- don't insert the current comment leader automatically for auto-wrapping comments using 'textwidth', hitting <Enter> in insert mode, or hitting 'o' or 'O' in normal mode.
 
 -- api
 local api = vim.api
