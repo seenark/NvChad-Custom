@@ -69,6 +69,25 @@ M.CodeActionMenu = {
   }
 }
 
+M.terminal = {
+  n = {
+    ["<A-b>"] = {
+      function()
+        require("nvterm.terminal").toggle "horizontal"
+      end,
+      "toggle horizontal term",
+    },
+  },
+  t = {
+    ["<A-b>"] = {
+      function()
+        require("nvterm.terminal").toggle "horizontal"
+      end,
+      "toggle horizontal term",
+    },
+  }
+}
+
 -- M.nvterm = {
 --   t = {
 --     -- toggle in terminal mode
