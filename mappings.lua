@@ -1,10 +1,17 @@
 local M = {}
 
+local opts = { noremap = true, silent = true }
 M.general = {
   n = {
     -- Move text up and down
     ["<C-a>"] = { "<cmd> %y+ <CR>", "copy whole file" },
+    ["Y"] = { '"+y',"Copy to clipboard", opts },
+    ["P"] = {'"+p', "Paste from clipboard", opts},
   },
+  x = {
+    ["Y"] = { '"+y',"Copy to clipboard", opts },
+    ["P"] = {'"+p', "Paste from clipboard", opts},
+  }
   -- v = {
   --   ["<A-k>"] = { ":m .-2<CR>==", "Move text up" },
   --   ["<A-j>"] = { ":m .+1<CR>==", "Move text down" },
@@ -46,7 +53,6 @@ M.Lsp = {
   },
 }
 
-local opts = { noremap = true, silent = true }
 M.Move = {
   n = {
     ["<A-j>"] = { ":MoveLine(1) <CR>", "Move line down", opts },
