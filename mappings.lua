@@ -53,6 +53,12 @@ M.Lsp = {
   },
 }
 
+-- M.cmp = {
+--   n = {
+--     ["C-Space>"] = {  }
+--   }
+-- }
+
 M.Move = {
   n = {
     ["<A-j>"] = { ":MoveLine(1) <CR>", "Move line down", opts },
@@ -93,27 +99,5 @@ M.terminal = {
     },
   }
 }
-
--- M.nvterm = {
---   t = {
---     -- toggle in terminal mode
---     ["<A-j>"] = {
---       function()
---         require("nvterm.terminal").toggle "float"
---       end,
---       "toggle floating term",
---     },
---   },
---
---   n = {
---     -- toggle in normal mode
---     ["<A-j>"] = {
---       function()
---         require("nvterm.terminal").toggle "float"
---       end,
---       "toggle floating term",
---     },
---   },
--- }
 
 return M

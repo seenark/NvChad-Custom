@@ -1,5 +1,6 @@
 local nvimtree = require "custom.plugins.nvimtree"
 local treesitter = require "custom.plugins.treesitter"
+local cmpConfig = require "custom.plugins.cmp"
 
 return {
   ["kyazdani42/nvim-tree.lua"] = {
@@ -28,6 +29,9 @@ return {
       },
     },
   },
+  ["hrsh7th/nvim-cmp"] = {
+    override_options = cmpConfig
+  },
   ---------------------------------
   -- install
   ---------------------------------
@@ -54,5 +58,5 @@ return {
       }
     end,
   },
-  ["p00f/nvim-ts-rainbow"] = {}
+  ["p00f/nvim-ts-rainbow"] = {},
 }
