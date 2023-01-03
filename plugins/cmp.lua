@@ -51,7 +51,7 @@ return function()
             Operator = 10,
             Reference = 10,
             Struct = 10,
-            Variable = 9,
+            Variable = 11,
             File = 8,
             Folder = 8,
             Class = 5,
