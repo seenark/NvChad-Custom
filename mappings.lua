@@ -4,14 +4,17 @@ local opts = { noremap = true, silent = true }
 M.general = {
   n = {
     -- Move text up and down
-    ["<C-a>"] = { "<cmd> %y+ <CR>", "copy whole file" },
-    ["Y"] = { '"+y',"Copy to clipboard", opts },
-    ["P"] = {'"+p', "Paste from clipboard", opts},
+    ["%"] = { "<cmd> %y+ <CR>", "copy whole file" },
+    ["<leader>y"] = { '"+y', "Copy to clipboard", opts },
+    ["<leader>p"] = { '"+p', "Paste from clipboard", opts },
+    ["gl"] = { "$", "go to end of line", opts },
+    ["gh"] = { "_", "go to begin of line", opts },
+    ["ge"] = { "G", "go to bottom of page", opts },
   },
   x = {
-    ["Y"] = { '"+y',"Copy to clipboard", opts },
-    ["P"] = {'"+p', "Paste from clipboard", opts},
-  }
+    ["<leader>y"] = { '"+y', "Copy to clipboard", opts },
+    ["<leader>p"] = { '"+p', "Paste from clipboard", opts },
+  },
   -- v = {
   --   ["<A-k>"] = { ":m .-2<CR>==", "Move text up" },
   --   ["<A-j>"] = { ":m .+1<CR>==", "Move text down" },
@@ -44,6 +47,12 @@ M.Lsp = {
       end,
       "lsp formatting",
     },
+    ["<leader>k"] = {
+      function()
+        vim.lsp.buf.hover()
+      end,
+      "lsp hover",
+    },
     -- ["<leader>."] = {
     --   function()
     --     vim.lsp.buf.code_action()
@@ -74,11 +83,10 @@ M.Move = {
   },
 }
 
-
 M.CodeActionMenu = {
   n = {
-    ["<leader>."] = {"<cmd>CodeActionMenu<CR>", "Open Code action menu"}
-  }
+    ["<leader>."] = { "<cmd>CodeActionMenu<CR>", "Open Code action menu" },
+  },
 }
 
 M.terminal = {
@@ -97,6 +105,27 @@ M.terminal = {
       end,
       "toggle horizontal term",
     },
+  },
+}
+
+M.tabufline = {
+  n = {
+    ["gn"] = {
+      function()
+        require("nvchad_ui.tabufline").tabuflineNext()
+      end,
+      "goto next buffer",
+    },
+
+    ["gp"] = {
+      function()
+        require("nvchad_ui.tabufline").tabuflinePrev()
+      end,
+      "goto prev buffer",
+    },
+
+    -- pick buffers via numbers
+    ["<leader>b"] = { "<cmd> TbufPick <CR>", "Pick buffer" },
   }
 }
 
