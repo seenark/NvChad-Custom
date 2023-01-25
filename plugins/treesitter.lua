@@ -1,5 +1,11 @@
 local M = {}
 
+-- require'nvim-treesitter.configs'.setup {
+--   context_commentstring = {
+--     enable = true
+--   }
+-- }
+
 M.treesitter = {
   autotag = {
     enable = true,
@@ -10,6 +16,7 @@ M.treesitter = {
     "html",
     "css",
     "typescript",
+    "tsx",
     "rust",
     "toml",
     "yaml",
@@ -21,6 +28,10 @@ M.treesitter = {
     enable = true,
     extended_mode = true,
     max_file_lines = nil,
+  },
+  context_commentstring = {
+    enable = true,
+    enable_autocmd = false,
   }
 }
 
